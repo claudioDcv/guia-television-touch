@@ -1,0 +1,19 @@
+{
+  "name": "guia-television-touch",
+  "version": "1.0.0",
+  "description": "guia de television, event touch, pure js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudioDcv/guia-television-touch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claudioDcv/guia-television-touch/issues"
+  },
+  "homepage": "https://github.com/claudioDcv/guia-television-touch#readme"
+}
