@@ -1,0 +1,46 @@
+html,body{
+  margin:0;
+  padding:0;
+}
+
+.container-programas{margin: 80px 0 0 60px;}
+#zona{
+  overflow: hidden;
+  background: hsl(0, 100%, 50%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+}
+#hora{
+  background:blue;
+  width:3000px;
+  height:80px;
+  position: absolute;
+  z-index: 9;
+  background-size : cover;
+  background-image : url('./GuiaTouch.jpeg');
+  transition : ease-in-out margin .1s;
+}
+
+#movil{
+  background:blue;
+  width:3000px;
+  height:1000px;
+  background-size : cover;
+  background-image : url('./GuiaTouch.jpeg');
+  transition : ease-in-out margin .1s;
+
+}
+#canales{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size : cover;
+  background-image : url('./GuiaTouch.jpeg');
+  transition : ease-in-out margin .1s;
+  width: 60px;
+  height: 3000px
+}
