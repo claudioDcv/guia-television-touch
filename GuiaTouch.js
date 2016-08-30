@@ -1,4 +1,4 @@
-//RETORNO DE PETICION INICIAL deberian ser 300 canales
+        //RETORNO DE PETICION INICIAL deberian ser 300 canales
 var canales = [{
     "name": "CNN",
     "id": 1,
@@ -259,6 +259,122 @@ var canales = [{
 
     }, ]
 }, {
+    "name": "TVN",
+    "id": 6,
+    "cat": "series",
+    "programas": [{
+        "name": "La Fiera",
+        "porcentaje": 20,
+
+    }, {
+        "name": "Iorana",
+        "porcentaje": 11.4,
+
+    }, {
+        "name": "Oro Verde",
+        "porcentaje": 32,
+
+    }, {
+        "name": "Buenos dias a todos",
+        "porcentaje": 22,
+
+    }, {
+        "name": "Tikiticlip",
+        "porcentaje": 2.5,
+
+    }, {
+        "name": "31 Minutos",
+        "porcentaje": 1.8,
+
+    }, ]
+}, {
+    "name": "TVN",
+    "id": 6,
+    "cat": "series",
+    "programas": [{
+        "name": "La Fiera",
+        "porcentaje": 20,
+
+    }, {
+        "name": "Iorana",
+        "porcentaje": 11.4,
+
+    }, {
+        "name": "Oro Verde",
+        "porcentaje": 32,
+
+    }, {
+        "name": "Buenos dias a todos",
+        "porcentaje": 22,
+
+    }, {
+        "name": "Tikiticlip",
+        "porcentaje": 2.5,
+
+    }, {
+        "name": "31 Minutos",
+        "porcentaje": 1.8,
+
+    }, ]
+}, {
+    "name": "TVN",
+    "id": 6,
+    "cat": "series",
+    "programas": [{
+        "name": "La Fiera",
+        "porcentaje": 20,
+
+    }, {
+        "name": "Iorana",
+        "porcentaje": 11.4,
+
+    }, {
+        "name": "Oro Verde",
+        "porcentaje": 32,
+
+    }, {
+        "name": "Buenos dias a todos",
+        "porcentaje": 22,
+
+    }, {
+        "name": "Tikiticlip",
+        "porcentaje": 2.5,
+
+    }, {
+        "name": "31 Minutos",
+        "porcentaje": 1.8,
+
+    }, ]
+}, {
+    "name": "TVN",
+    "id": 6,
+    "cat": "series",
+    "programas": [{
+        "name": "La Fiera",
+        "porcentaje": 20,
+
+    }, {
+        "name": "Iorana",
+        "porcentaje": 11.4,
+
+    }, {
+        "name": "Oro Verde",
+        "porcentaje": 32,
+
+    }, {
+        "name": "Buenos dias a todos",
+        "porcentaje": 22,
+
+    }, {
+        "name": "Tikiticlip",
+        "porcentaje": 2.5,
+
+    }, {
+        "name": "31 Minutos",
+        "porcentaje": 1.8,
+
+    }, ]
+}, {
     "name": "ECT TV",
     "id": 7,
     "cat": "infantil",
@@ -427,27 +543,28 @@ var orderBy = [{
                     recuerdo = Irecuerdo + (uPos - posMouseNew);
 
                     //RECONOCIMINETO DIRECCION MOVIMIENTO
-                    if ((uPos - posMouseNew) < 60) {
+                    //if ((uPos - posMouseNew) < 60) {
+                    console.log(posMouseNew , lastX);
                         if (posMouseNew > lastX) {
                             //console.log('>');
-                            canales.style.marginLeft = '0px';
+                            canales.style.marginLeft = '0';
                         } else if (posMouseNew < lastX) {
                             // moved up
                             //console.log('<');
                             //console.log((uPos-posMouseNew));
-                            canales.style.marginLeft = '-' + (uPos - posMouseNew) + 'px';
+                            canales.style.marginLeft = '-60px';
                         }
-                    } else {
-                        if (posMouseNew > lastX) {
-                            //console.log('>');
-                            canales.style.marginLeft = '0px';
-                        } else if (posMouseNew < lastX) {
-                            // moved up
-                            //console.log('<');
-                            //console.log((uPos-posMouseNew));
-                            canales.style.marginLeft = '-' + 60 + 'px';
-                        }
-                    }
+                    //} else {
+                        // if (posMouseNew > lastX) {
+                        //     //console.log('>');
+                        //     canales.style.display = 'block';
+                        // } else if (posMouseNew < lastX) {
+                        //     // moved up
+                        //     //console.log('<');
+                        //     //console.log((uPos-posMouseNew));
+                        //     canales.style.display = 'none';
+                        // }
+                  //  }
                     lastX = posMouseNew;
 
                 }
@@ -651,7 +768,7 @@ var orderBy = [{
 
                 } else {
                     if (texto.length > 0) {
-                        styleEncontrado = 'background:hsla(0, 0%, 100%, 0.19);';
+                        styleEncontrado = 'background: #dfdfdf;color: #282828;';
                     } else {
                         styleEncontrado = '';
                     }
@@ -724,8 +841,3 @@ var scroll = new ScrollTouch('zona', 'movil', 'hora', 'canales', 1, canales);
 scroll.createStyle();
 scroll.createLogicalSearch();
 var horas = scroll.getHorario('12:00');
-
-
-
-
-//console.log([horas]);
