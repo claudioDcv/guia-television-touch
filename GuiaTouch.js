@@ -433,6 +433,7 @@ var ScrollTouch = function(zona,movil,hora,canales,velocidad,canalesCount){
   this.box = box;
   var canales = document.getElementById(canales);
   this.listaCanales = canales;
+  canales.style.marginLeft = 0;
   var movil = document.getElementById(movil);
       movil.style.marginLeft = 0;
       this.movil = movil;
@@ -452,6 +453,8 @@ var ScrollTouch = function(zona,movil,hora,canales,velocidad,canalesCount){
 
   var maximoPermitido = 0;
   var maximoPermitidoY = 0;
+
+  var lastX;
 
   function init(){
     var w = window.innerWidth
@@ -487,6 +490,7 @@ var ScrollTouch = function(zona,movil,hora,canales,velocidad,canalesCount){
 
   }
   function touchmove(event){
+
     //si es menor a cero, no se sigue sumando el recuerdo
     //y se deja en cero el recuerdo
     if(recuerdo < 0){
@@ -501,10 +505,38 @@ var ScrollTouch = function(zona,movil,hora,canales,velocidad,canalesCount){
       }else{
         //si esta dentro del rango permitido se continua con las
         //operaciones
+
+
+
         posMouseNew = parseInt(event.changedTouches[0].clientX);
         movil.style.marginLeft = recuerdo*-velocidad + 'px';
         hora.style.marginLeft = recuerdo*-velocidad + 'px';
         recuerdo = Irecuerdo + (uPos-posMouseNew);
+
+        //RECONOCIMINETO DIRECCION MOVIMIENTO
+        if ((uPos-posMouseNew) < 60) {
+          if(posMouseNew > lastX){
+              //console.log('>');
+              canales.style.marginLeft = '0px';
+          }else if(posMouseNew < lastX){
+              // moved up
+              //console.log('<');
+              //console.log((uPos-posMouseNew));
+                  canales.style.marginLeft = '-' + (uPos-posMouseNew) + 'px';
+          }
+        }else{
+          if(posMouseNew > lastX){
+              //console.log('>');
+              canales.style.marginLeft = '0px';
+          }else if(posMouseNew < lastX){
+              // moved up
+              //console.log('<');
+              //console.log((uPos-posMouseNew));
+                  canales.style.marginLeft = '-' + 60 + 'px';
+          }
+        }
+        lastX = posMouseNew;
+
       }
     }
     if(recuerdoY < 0){
@@ -726,7 +758,7 @@ ScrollTouch.prototype.createCanales = function(canales,texto){
 
   }
   //console.log(this.listaCanales.innerHTML);
-  console.log(contEncontrados);
+  //console.log(contEncontrados);
 
   this.movil.style.height = ((contEncontrados*60)) + 'px';
   this.listaCanales.style.height = ((contEncontrados*60)+80) + 'px';
@@ -750,6 +782,24 @@ ScrollTouch.prototype.createCanales = function(canales,texto){
        styleCSS.appendChild(classCSS);
        this.box.appendChild(styleCSS);
  };
+ScrollTouch.prototype.createLogicalSearch = function(){
+  this.createCanales(canales,"");
+  function buscar(){
+    var txt = document.getElementById('busqueda').value || " ";
+    scroll.createCanales(canales,txt);
+  }
+  function addListerners(elm){
+    elm.addEventListener('change',buscar)
+    elm.addEventListener('blur',buscar)
+    elm.addEventListener('paste',buscar)
+    elm.addEventListener('keyup',buscar)
+    elm.addEventListener('keydown',buscar)
+    elm.addEventListener('focus',buscar)
+  }
+
+
+  addListerners(document.getElementById('busqueda'));
+}
 
   window.ScrollTouch = ScrollTouch;
 })( window );
@@ -757,28 +807,13 @@ ScrollTouch.prototype.createCanales = function(canales,texto){
 
 var scroll = new ScrollTouch('zona','movil','hora','canales',1,canales);
             scroll.createStyle();
-
+            scroll.createLogicalSearch();
 var horas = scroll.getHorario('12:00');
 
 
 
 
-scroll.createCanales(canales,"");
-function buscar(){
-  var txt = document.getElementById('busqueda').value || " ";
-  scroll.createCanales(canales,txt);
-}
-function addListerners(elm){
-  elm.addEventListener('change',buscar)
-  elm.addEventListener('blur',buscar)
-  elm.addEventListener('paste',buscar)
-  elm.addEventListener('keyup',buscar)
-  elm.addEventListener('keydown',buscar)
-  elm.addEventListener('focus',buscar)
-}
 
-
-addListerners(document.getElementById('busqueda'))
 
 
     //console.log([horas]);
