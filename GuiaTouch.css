@@ -2,17 +2,17 @@ html,body{
   margin:0;
   padding:0;
 }
-
 .container-programas{margin: 80px 0 0 60px;}
 #zona{
   overflow: hidden;
-  background: hsl(0, 100%, 50%);
+  background: hsl(205, 83%, 25%);
   width: 100%;
   height: 100%;
   position: absolute;
   margin: 0;
   top: 0;
   bottom: 0;
+  font-family: 'Helvetica','Arial','Sans';
 }
 #hora{
   background:blue;
@@ -28,12 +28,35 @@ html,body{
 #movil{
   background:blue;
   width:3000px;
-  height:1000px;
   background-size : cover;
   background-image : url('./GuiaTouch.jpeg');
   transition : ease-in-out margin .1s;
 
 }
+#movil div {
+    color: hsl(0, 0%, 100%);
+    outline: dashed 1px hsl(114, 55%, 89%);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+#movil div div{
+  display: inline-block;
+  height: 60px;
+  text-align: center;
+  padding: 20px 5px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#movil div:nth-child(even) div:nth-child(odd){background-color: hsla(205, 34%, 13%, 0.75);;}
+#movil div:nth-child(even) div:nth-child(even){background: hsla(204, 34%, 19%, 0.78);}
+
+#movil div:nth-child(odd) div:nth-child(even){background-color: hsla(205, 34%, 13%, 0.75);}
+#movil div:nth-child(odd) div:nth-child(odd){background: hsla(204, 34%, 19%, 0.78);}
+
+
 #canales{
   position: absolute;
   top: 0;
@@ -42,5 +65,36 @@ html,body{
   background-image : url('./GuiaTouch.jpeg');
   transition : ease-in-out margin .1s;
   width: 60px;
-  height: 3000px
+  /*height: 3000px*/
+}
+#canales div:first-child{margin-top: 80px;}
+#canales div{
+  color: hsl(0, 0%, 100%);
+  outline: dashed 1px hsl(114, 55%, 89%);
+  height: 60px;
+  padding: 20px 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+  background: hsl(204, 61%, 9%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.programa{transition : ease-in-out all .5s;height: 60px;}
+.programa.programa-oculto{transition : ease-in-out all .5s;height: 0px;}
+
+input{
+  left: 0;
+  position: absolute;
+  top: 46px;
+  z-index: 99;
+  width: 100%;
+  height: 34px;
+  right: 0;
+  background: hsla(0, 0%, 0%, 0.42);
+  border: none;
+  box-sizing: border-box;
+  color: hsl(0, 0%, 100%);
+  outline: none;
+  padding: 5px;
 }
